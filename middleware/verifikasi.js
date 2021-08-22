@@ -1,9 +1,9 @@
 const jwt = require('jsonwebtoken');
 const config = require('../config/secret');
 
-function verifikasi(roles) {
+function verifikasi() {
     return function (req, result, next) {
-        var role = req.body.role;
+        var role = req.body.roles;
         // Cek authorization header
         var tokenWithBearer = req.headers.authorization;
         if (tokenWithBearer) {
@@ -14,7 +14,7 @@ function verifikasi(roles) {
                 if(error){
                     return result.status(401).send({auth:false, message: 'Token tidak terdaftar!'});
                 }else{
-                    if(roles == 2){
+                    if(role == 2){
                         req.auth = decoded;
                         next();
                     }else{
