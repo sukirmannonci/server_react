@@ -7,7 +7,7 @@ var config = require('../config/secret');
 var ip = require('ip');
 
 // Controller register
-exports.registrasi = function (req, res) {
+exports.registrasi = function (req, result) {
     var post =  {
         username: req.body.username,
         email: req.body.email,
@@ -33,18 +33,18 @@ exports.registrasi = function (req, res) {
                     if (error) {
                         console.log(error);
                     }else{
-                        response.ok("Berhasil menambahkan data user baru", res);
+                        response.ok("Berhasil menambahkan data user baru", result);
                     }
                 });
             }else{
-                response.ok("Email sudah terdaftar!", res);
+                response.ok("Email sudah terdaftar!", result);
             }
         }
     })
 }
 
 // Controller untuk login
-exports.login = function (req, res) {
+exports.login = function (req, result) {
     var post = {
         password: req.body.password,
         email: req.body.email
@@ -79,7 +79,7 @@ exports.login = function (req, res) {
                     if (error) {
                         console.log(error);
                     }else{
-                        res.json({
+                        result.json({
                             success: true,
                             message: "Token jwt tergenerate",
                             token: token,
@@ -88,12 +88,12 @@ exports.login = function (req, res) {
                     }
                 });
             }else{
-                 res.json({"Error": true, "Message": "Email atau password salah"});
+                result.json({"Error": true, "Message": "Email atau password salah"});
             }
         }
     });
 }
 
-exports.halamanrahasia = function (req, res) {
-    response.ok("Halaman ini hanya untuk user dengan role = 2", res);
+exports.halamanrahasia = function (req, result) {
+    response.ok("Halaman ini hanya untuk user dengan role = 2", result);
 }
