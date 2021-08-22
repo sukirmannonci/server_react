@@ -1,0 +1,24 @@
+{
+  "name": "server_react",
+  "version": "1.0.0",
+  "description": "aplikasi rest api",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sukirmannonci/server_react.git"
+  },
+  "keywords": [
+    "rest",
+    "api",
+    "nodejs"
+  ],
+  "author": "sukirman",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/sukirmannonci/server_react/issues"
+  },
+  "homepage": "https://github.com/sukirmannonci/server_react#readme"
+}
